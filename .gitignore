@@ -1,0 +1,13 @@
+# ===== 个人数据，绝对不要提交 =====
+# 抖音登录信息（cookies）
+edge_profile/
+# 个人设置（直播间地址、窗口位置等），第一次运行会自动生成
+overlay_config.json
+# 运行日志（含观众昵称和弹幕）
+danmaku_log.txt
+# 从抖音下载的表情 / 礼物图标，运行时自动下载
+emoji_cache/
+
+# ===== Python =====
+__pycache__/
+*.pyc
