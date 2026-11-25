@@ -11,7 +11,7 @@
 
 运行：双击 start.bat（不会留下黑窗口）
 第一次使用 / 直播设了「部分人可见」：先双击 login.bat 登录一次抖音
-出问题时看同目录的 danmaku_log.txt
+出问题时看同目录的 overlay_log.txt
 """
 import ctypes
 import gzip
@@ -32,7 +32,7 @@ from ctypes import wintypes
 HERE = os.path.dirname(os.path.abspath(__file__))
 CONFIG = os.path.join(HERE, "overlay_config.json")
 PROFILE = os.path.join(HERE, "edge_profile")   # 专用的 Edge 登录档案（和你平时用的 Edge 分开）
-LOG = os.path.join(HERE, "danmaku_log.txt")
+LOG = os.path.join(HERE, "overlay_log.txt")
 EMOJI_DIR = os.path.join(HERE, "emoji_cache")    # 抖音表情图片缓存（只下载一次）
 EMOJI_INDEX = os.path.join(EMOJI_DIR, "index.json")
 emoji_files = {}   # "[微笑]" -> emoji_cache 里的文件名；礼物图标的 key 是 "gift:礼物id"
@@ -753,7 +753,7 @@ def run_tray():
         pystray.Menu.SEPARATOR,
         pystray.MenuItem("退出", send(CMD_QUIT)),
     )
-    icon = pystray.Icon("douyin_danmaku", make_icon_image(), APP_NAME, menu)
+    icon = pystray.Icon("douyin_live_overlay", make_icon_image(), APP_NAME, menu)
     tray_ref["icon"] = icon
     icon.run()
 
@@ -2694,7 +2694,7 @@ def login_mode():
 
 
 def single_instance():
-    kernel32.CreateMutexW(None, False, "Local\\DouyinDanmakuOverlay")
+    kernel32.CreateMutexW(None, False, "Local\\DouyinLiveOverlay")
     return kernel32.GetLastError() != 183   # ERROR_ALREADY_EXISTS
 
 
@@ -2829,4 +2829,4 @@ if __name__ == "__main__":
     except Exception as e:
         traceback.print_exc()
         message_box("弹幕悬浮窗出错了，已退出：\n\n" + str(e)[:300] +
-                    "\n\n详细信息在 danmaku_log.txt 里，可以截图发给帮你写程序的人。")
+                    "\n\n详细信息在 overlay_log.txt 里，可以截图发给帮你写程序的人。")

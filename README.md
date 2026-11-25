@@ -61,7 +61,7 @@
 想点一个图标同时打开直播伴侣和悬浮窗，并且直播伴侣关闭时悬浮窗自动退出：新建一个快捷方式，目标填
 
 ```
-pythonw.exe "<本文件夹>\danmaku_overlay.py" --with-companion
+pythonw.exe "<本文件夹>\douyin_live_overlay.py" --with-companion
 ```
 
 程序会自动从开始菜单找到直播伴侣；找不到时，在设置里把 `companion_path` 填成「直播伴侣 Launcher.exe」的完整路径。

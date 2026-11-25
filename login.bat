@@ -9,6 +9,6 @@ if errorlevel 1 (
 )
 echo 如果弹幕悬浮窗正在运行，请先在右下角托盘图标上右键 - 退出。
 echo.
-python danmaku_overlay.py --login
+python douyin_live_overlay.py --login
 echo.
 pause

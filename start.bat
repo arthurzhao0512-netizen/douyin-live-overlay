@@ -26,5 +26,5 @@ if not exist "edge_profile" (
     timeout /t 10 >nul
 )
 rem 用 pythonw 启动：不会有黑窗口，程序在右下角托盘里
-start "" pythonw danmaku_overlay.py
+start "" pythonw douyin_live_overlay.py
 exit /b
